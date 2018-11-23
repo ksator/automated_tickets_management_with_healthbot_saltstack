@@ -31,4 +31,26 @@ def create_ticket(subject, text):
         ticket_id = check_if_a_ticket_already_exist(subject, tracker)
         update_ticket(ticket_id, text, tracker)
     tracker.logout()
+    return ticket_id
+
+def update_ticket(ticket_id, text, tracker):
+    tracker.reply(ticket_id, text=text)
+    return ticket_id
+
+def change_ticket_status_to_resolved(ticket_id):
+    tracker=connect_to_rt()
+    tracker.edit_ticket(ticket_id, Status="Resolved")
+    tracker.logout()
+    return ticket_id
+
+def attach_files_to_ticket(subject, device_directory):
+    rt_pillars=get_rt_pillars()
+    junos_commands = rt_pillars['collect_show_commands']
+    tracker=connect_to_rt()
+    ticket_id = check_if_a_ticket_already_exist(subject, tracker)
+    for item in junos_commands:
+        file_to_attach='/var/cache/salt/master/minions/' +  device_directory + '/files/tmp/' +  device_directory + '/' +  item['command'] + '.txt'
+        tracker.comment(ticket_id, text='file "' + item['command'] + '.txt" attached to RT using SaltStack', files=[(file_to_attach, open(file_to_attach, 'rb'))])
+    tracker.logout()
+    return ticket_id
 
