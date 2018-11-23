@@ -1,10 +1,16 @@
 engines:
     - webhook:
         port: 5001
-
 runner_dirs:
     - /srv/runners
-
 pillar_roots:
     base:
     - /srv/pillar
+fileserver_backend:
+    - roots
+file_roots:
+    base:
+        - /srv/salt
+auto_accept: True
+file_recv: True
+loop_interval: 30
