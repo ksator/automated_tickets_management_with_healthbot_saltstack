@@ -7,7 +7,7 @@ Event driven automation using Healthbot and SaltStack and Junos
 - SaltStack reacts to these notifications.  
     - SaltStack automatically creates a new RT (Request Tracker) ticket to track the issue. If there is already an
 existing ticket to track this issue, SaltStack updates the existing ticket instead of creating a new one. 
-    - The relevant content of the webhook notifications from Healthbot are added to the appropriate tickets.
+    - The relevant content of the webhook notifications from Healthbot are automatically added to the appropriate tickets.
     - SaltStack automatically collects "show commands" from the faulty junos device and attach the device output to the appropriate tickets.
 
 # instructions
