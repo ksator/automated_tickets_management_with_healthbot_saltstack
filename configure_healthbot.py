@@ -139,6 +139,10 @@ device_group = """{
                 "description" : "vmx",
                 "devices" : ["vMX1", "vMX2", "vMX3", "vMX4", "vMX5", "vMX6", "vMX7"],
                 "playbooks" : ["openconfig"],
+                "notification": {
+                    "major": ["healthbot_to_saltstack"]
+                    "minor": ["healthbot_to_saltstack"]
+                }
                 "variable" : [
                 {
                     "instance-id" : "openconfig-instance-1",
@@ -149,6 +153,11 @@ device_group = """{
             }"""
 
 my_notification = """{
+                 "notification-name": "healthbot_to_saltstack",
+                 "description": "healthbot to saltstack webhook notifications", 
+                 "http-post": {
+                      "url": "http://100.123.35.1:5001/healthbot"
+                  }
             }"""
 
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
