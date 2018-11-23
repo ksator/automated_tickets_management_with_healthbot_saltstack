@@ -1,6 +1,6 @@
 base:
     '*':
-        - production
+        - rt
         - collect_show_commands
     'vMX1':
         - vMX1-details
