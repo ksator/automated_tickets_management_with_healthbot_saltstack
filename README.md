@@ -10,6 +10,6 @@ existing ticket to track this issue, SaltStack updates the existing ticket inste
     - The relevant content of the webhook notifications from Healthbot are automatically added to the appropriate tickets.
     - SaltStack automatically collects "show commands" from the faulty junos device and attach the device output to the appropriate tickets.
 
-# instructions
+# Instructions
 
 clone the repository and visit the repository wiki pages
