@@ -1,3 +1,4 @@
+import os
 import json
 import yaml
 import requests
@@ -119,15 +120,24 @@ device_group = """{
 
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
-add_rule('enforce-interfaces-state.rule')
+print '**************** adding rules ************************'
+rules_list=os.listdir('rules')
+for rule in rules_list:
+    add_rule('enforce-interfaces-state.rule')
 
-add_playbook('enforce-int-state.playbook')
+print '**************** adding playbooks ************************'
+playbooks_list=os.listdir('playbooks')
+for playbook in playbooks_list: 
+    add_playbook('enforce-int-state.playbook')
 
+print '**************** adding devices ************************'
 my_devices=yaml.load(devices)
 for item in my_devices:
     add_device(item)
 
+print '**************** adding device groups ************************'
 my_group=yaml.load(device_group)
 add_device_group(my_group)
 
+print '**************** committing changeset **********************'
 commit()
