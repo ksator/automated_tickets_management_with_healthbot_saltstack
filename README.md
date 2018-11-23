@@ -1,6 +1,6 @@
 # About this project
 
-Event driven automation using Healthbot and SaltStack 
+Event driven automation using Healthbot and SaltStack and Junos 
 
 - Healthbot is used to collect data from the network, store the data collected, process the data collected.  
 - Based on healthbot configuration and network devices status, webhook notifications are sent from healthbot to SaltStack.  
@@ -13,4 +13,4 @@ Event driven automation using Healthbot and SaltStack
 
 # instructions
 
-clone this repository and visit the repository wiki 
+clone the repository and visit the repository wiki 
