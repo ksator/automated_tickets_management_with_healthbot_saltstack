@@ -25,6 +25,11 @@ def add_device_group(group):
     r = requests.post(url + '/device-group/' + group['device-group-name'] + '/', auth=HTTPBasicAuth(authuser, authpwd), headers=headers, verify=False, data=payload)
     print 'loaded healthbot configuration for the device group: ' + group['device-group-name']
 
+def add_notification(notification):
+    payload=json.dumps(notification)
+    r = requests.post(url + '/notification/' + notification['notification-name'] + '/', auth=HTTPBasicAuth(authuser, authpwd), headers=headers, verify=False, data=payload)
+    print 'loaded healthbot configuration for the notification: ' + notification['notification-name']
+    
 def commit():
     r = requests.post(url + '/configuration', auth=HTTPBasicAuth(authuser, authpwd), headers=headers, verify=False)
     print 'healthbot configuration commited!'
@@ -133,7 +138,7 @@ device_group = """{
                 "device-group-name" : "vmx",
                 "description" : "vmx",
                 "devices" : ["vMX1", "vMX2", "vMX3", "vMX4", "vMX5", "vMX6", "vMX7"],
-                "playbooks" : ["enforce-int-state"],
+                "playbooks" : ["openconfig"],
                 "variable" : [
                 {
                     "instance-id" : "openconfig-instance-1",
@@ -141,6 +146,9 @@ device_group = """{
                     "rule" : "bgp/check-bgp-state-using-openconfig"
                 }
                 ]
+            }"""
+
+my_notification = """{
             }"""
 
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
@@ -154,6 +162,10 @@ print '**************** adding playbooks ************************'
 playbooks_list=os.listdir('playbooks')
 for playbook in playbooks_list: 
     add_playbook('enforce-int-state.playbook')
+
+print '**************** adding notifications ************************'
+my_notification=yaml.load(notification)
+add_notification(my_notification)
 
 print '**************** adding devices ************************'
 my_devices=yaml.load(devices)
