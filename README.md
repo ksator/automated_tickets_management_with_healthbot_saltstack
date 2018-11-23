@@ -12,4 +12,4 @@ existing ticket to track this issue, SaltStack updates the existing ticket inste
 
 # Instructions
 
-clone the repository and visit the repository wiki pages
+clone the repository and visit the [repository wiki pages](https://github.com/ksator/automated_tickets_management_with_healthbot_saltstack/wiki)
