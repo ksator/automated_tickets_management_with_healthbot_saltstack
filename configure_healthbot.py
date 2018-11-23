@@ -107,7 +107,7 @@ devices = """[
 device_group = """{
                 "device-group-name" : "vmx",
                 "description" : "vmx",
-                "devices" : ["vMX1", "vMX2", "vMX3"],
+                "devices" : ["vMX1", "vMX2", "vMX3", "vMX4", "vMX5", "vMX6", "vMX7"],
                 "playbooks" : ["enforce-int-state"],
                 "variable" : [
                 {
