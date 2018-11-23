@@ -10,7 +10,6 @@
 - One Ubuntu VM (16.04) for SaltStack and Request Tracker
 
 ## IP addresses 
-
 Here are the management ip addresses I am using in my scripts.  
 Update the scripts to use the management ip addresses of your lab.  
 You can use less Junos devices if you want (you need at least 2 devices to test protocols).    
@@ -27,11 +26,40 @@ You can use less Junos devices if you want (you need at least 2 devices to test 
 | vMX6      | 100.123.1.5   |
 | vMX7      | 100.123.1.6   |
 
+## Ubuntu details
+
+```
+$ lsb_release -a
+```
+
+## Junos details
+
+### Junos version
+```
+lab@dc-vmx-3> show version | match telemetry
+```
+```
+lab@dc-vmx-3> show version | match openconfig
+```
+
+### Junos configuration
+```
+lab@dc-vmx-3> show configuration system services extension-service | display set
+```
+```
+lab@dc-vmx-3> show configuration system services netconf | display set
+```
+
+## other componants
+
+The other componants (docker, SaltStack, python libraries, heathbot ...) will be installed using the below instructions.
 
 # instructions
 
 clone this repository 
 ```
+$ git clone
+$ cd 
 ```
 
 ## instructions about the host ```ubuntu```
