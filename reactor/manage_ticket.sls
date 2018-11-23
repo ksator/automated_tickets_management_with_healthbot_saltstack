@@ -10,8 +10,8 @@
 create_a_new_ticket_or_update_the_existing_one:
     runner.request_tracker.create_ticket:
         - args:
-            subject: "healthbot rule {{ rule }} - trigger {{ trigger }} - device-group {{ group }} - instance {{ instance }}"
-            text: "device {{ device }} - message {{ message }}"
+            subject: "healthbot rule {{ rule }} - trigger {{ trigger }} - device-group {{ group }} - device {{ device }} - instance {{ instance }}"
+            text: "message {{ message }}"
 
 show_commands_output_collection:
     local.state.apply:
@@ -22,7 +22,7 @@ show_commands_output_collection:
 attach_files_to_a_ticket:
     runner.request_tracker.attach_files_to_ticket:
         - args:
-            subject: "healthbot rule {{ rule }} - trigger {{ trigger }} - device-group {{ group }} - instance {{ instance }}"
+            subject: "healthbot rule {{ rule }} - trigger {{ trigger }} - device-group {{ group }} - device {{ device }} - instance {{ instance }}"
             device_directory: "{{ device }}"
         - require:
             - show_commands_output_collection
