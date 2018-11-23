@@ -9,7 +9,7 @@ make sure the device directory is present:
 {{ item.command }}:
     junos.cli:
         - name: {{ item.command }}
-        - dest: /tmp/{{ device_directory }}/{{ device_directory }}_{{ item.command }}.txt
+        - dest: /tmp/{{ device_directory }}/{{ item.command }}.txt
         - format: text
 
 {% endfor %}
