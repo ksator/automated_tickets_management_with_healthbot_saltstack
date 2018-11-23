@@ -1,0 +1,10 @@
+engines:
+    - webhook:
+        port: 5001
+
+runner_dirs:
+    - /srv/runners
+
+pillar_roots:
+    base:
+    - /srv/pillar
