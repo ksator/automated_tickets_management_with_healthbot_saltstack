@@ -1,0 +1,8 @@
+iceberg {
+    playbook openconfig {
+        rules [ bgp/check-bgp-state-using-openconfig interfaces/check-interfaces-status-using-openconfig interfaces/monitor-interfaces-errors-using-openconfig.rule ];
+        description "playbook to monitor junos using netconf";
+        synopsis "playbook to monitor junos using netconf";
+    }
+}
+
