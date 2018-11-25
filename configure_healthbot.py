@@ -152,7 +152,7 @@ device_group = """{
                 ]
             }"""
 
-my_notification = """{
+notification = """{
                  "notification-name": "healthbot_to_saltstack",
                  "description": "healthbot to saltstack webhook notifications", 
                  "http-post": {
@@ -165,12 +165,12 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 print '**************** adding rules ************************'
 rules_list=os.listdir('rules')
 for rule in rules_list:
-    add_rule('enforce-interfaces-state.rule')
+    add_rule(rule)
 
 print '**************** adding playbooks ************************'
 playbooks_list=os.listdir('playbooks')
 for playbook in playbooks_list: 
-    add_playbook('enforce-int-state.playbook')
+    add_playbook(playbook)
 
 print '**************** adding notifications ************************'
 my_notification=yaml.load(notification)
