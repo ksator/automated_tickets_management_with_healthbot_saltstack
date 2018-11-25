@@ -141,13 +141,20 @@ device_group = """{
                 "playbooks" : ["openconfig"],
                 "notification": {
                     "major": ["healthbot_to_saltstack"],
-                    "minor": ["healthbot_to_saltstack"]
+                    "minor": ["healthbot_to_saltstack"],
+                    enable
                 },
                 "variable" : [
                 {
                     "instance-id" : "openconfig-instance-1",
                     "playbook" : "openconfig",
-                    "rule" : "bgp/check-bgp-state-using-openconfig"
+                    "rule" : "bgp/check-bgp-state-using-openconfig",
+                    "variable-value" : [
+                    {
+                        "name" : "neighbors",
+                        "value" : "11.*"
+                    }
+                    ]
                 }
                 ]
             }"""
