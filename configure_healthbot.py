@@ -140,9 +140,9 @@ device_group = """{
                 "devices" : ["vMX1", "vMX2", "vMX3", "vMX4", "vMX5", "vMX6", "vMX7"],
                 "playbooks" : ["openconfig"],
                 "notification": {
-                    "major": ["healthbot_to_saltstack"]
+                    "major": ["healthbot_to_saltstack"],
                     "minor": ["healthbot_to_saltstack"]
-                }
+                },
                 "variable" : [
                 {
                     "instance-id" : "openconfig-instance-1",
