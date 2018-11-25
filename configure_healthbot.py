@@ -142,7 +142,7 @@ device_group = """{
                 "notification": {
                     "major": ["healthbot_to_saltstack"],
                     "minor": ["healthbot_to_saltstack"],
-                    enable
+                    "enable":[]
                 },
                 "variable" : [
                 {
