@@ -11,7 +11,7 @@ create_a_new_ticket_or_update_the_existing_one:
     runner.request_tracker.create_ticket:
         - args:
             subject: "healthbot rule {{ rule }} - trigger {{ trigger }} - device-group {{ group }} - device {{ device }}"
-            text: "message {{ message }}"
+            text: "{{ message }}"
 
 show_commands_output_collection:
     local.state.apply:
