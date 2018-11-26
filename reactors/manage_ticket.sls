@@ -5,7 +5,7 @@
 {% set rule = body_json['rule'] %}
 {% set group = body_json['group'] %}
 {% set trigger = body_json['trigger'] %}
-{% set instance = body_json['keys']['instance-id'] %}
+{% set instance = body_json['keys']['_instance-id'] %}
 
 create_a_new_ticket_or_update_the_existing_one:
     runner.request_tracker.create_ticket:
