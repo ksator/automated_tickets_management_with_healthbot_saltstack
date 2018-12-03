@@ -153,7 +153,7 @@ device_group = """{
                     "variable-value" : [
                     {
                         "name" : "neighbors",
-                        "value" : "11.*"
+                        "value" : "192.*"
                     }
                     ]
                 }
