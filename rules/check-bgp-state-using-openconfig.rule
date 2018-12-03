@@ -35,7 +35,7 @@ iceberg {
                     then {
                         status {
                             color green;
-                            message "$neighbor-address $session-state";
+                            message "neighbor $neighbor-address is $session-state";
                         }
                     }
                 }
@@ -43,7 +43,7 @@ iceberg {
                     then {
                         status {
                             color red;
-                            message "$neighbor-address $session-state";
+                            message "neighbor $neighbor-address is $session-state";
                         }
                     }
                 }
