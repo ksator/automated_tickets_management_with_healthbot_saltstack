@@ -1,0 +1,1 @@
+delete protocols bgp group underlay neighbor 192.168.1.4
