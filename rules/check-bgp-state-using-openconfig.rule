@@ -1,3 +1,6 @@
+/*
+* OC BGP sensor from JUNOS 17.3
+*/
 iceberg {
     topic bgp {
         description "This topic is to monitor bgp details";
@@ -5,10 +8,9 @@ iceberg {
         rule check-bgp-state-using-openconfig {
             keys neighbor-address;
             sensor bgp-sensor {
-                description "OC BGP sensor from JUNOS 17.3";
                 open-config {
                     sensor-name /network-instances/network-instance/protocols/protocol;
-                    frequency 10s;
+                    frequency 20s;
                 }
             }
             field neighbor-address {
@@ -26,6 +28,18 @@ iceberg {
                 type string;
                 description session-state;
             }
+            field established-transitions {
+                sensor bgp-sensor {
+                    path /network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/state/established-transitions;
+                }
+                type integer;
+            }
+            field last-established {
+                sensor bgp-sensor {
+                    path /network-instances/network-instance/protocols/protocol/bgp/neighbors/neighbor/state/last-established;
+                }
+                type integer;
+            }
             trigger neighbor-state {
                 frequency 30s;
                 term is_established {
@@ -35,7 +49,7 @@ iceberg {
                     then {
                         status {
                             color green;
-                            message "neighbor $neighbor-address is $session-state";
+                            message "session to $neighbor-address is $session-state - established-transitions $established-transitions - last-established $last-established";
                         }
                     }
                 }
@@ -43,7 +57,7 @@ iceberg {
                     then {
                         status {
                             color red;
-                            message "neighbor $neighbor-address is $session-state";
+                            message "session to $neighbor-address is $session-state - established-transitions $established-transitions last-established $last-established";
                         }
                     }
                 }
